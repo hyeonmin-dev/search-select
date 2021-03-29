@@ -39,7 +39,7 @@ function setCustomSelect (instance, list, width){
 	input.value = instance.options[instance.selectedIndex].text; // set init value
 	input.style.width = width + "px";
 	input.addEventListener('click', function() { event.stopPropagation(); showSearchList(ul, true); });
-	input.addEventListener('keyup', function(e) { serachSearchList(e, ul); });
+	input.addEventListener('keyup', function(e) { searchSearchList(e, ul); });
 	
 	ul.style.width = width + "px";
 	for (var i=0; i<list.length; i++) {
@@ -70,7 +70,7 @@ function showSearchList (instance, state) {
 }
 
 // Search
-function serachSearchList (e, instance) {
+function searchSearchList (e, instance) {
 	
 	let keycode = e.code;	
 	var keywords = e.target.value.split(" ");
@@ -168,4 +168,9 @@ function setFocusCustomItem (keycode, list) {
 
 	options_on[focus_idx].classList.add("focus");
 	list.scroll(0, 22 * focus_idx--);
+}
+
+
+function onChangeEvent() {
+	alert("Changed!!");
 }
